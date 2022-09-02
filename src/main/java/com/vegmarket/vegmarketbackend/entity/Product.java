@@ -5,6 +5,9 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,16 +16,18 @@ import lombok.Data;
 
 @Entity
 @Table(name="product")
-@Data
+@Getter
+@Setter
 public class Product {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name= "id")
-    private long id;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name="category_id",nullable= false)
+    @JoinColumn(name="category_id",nullable = false)
+    @JsonIgnore
     private ProductCategory category;
     @Column(name="product_name")
     private String name;
