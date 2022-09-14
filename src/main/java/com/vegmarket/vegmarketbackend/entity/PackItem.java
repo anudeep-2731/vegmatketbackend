@@ -7,10 +7,10 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="order_item")
+@Table(name="pack_item")
 @Getter
 @Setter
-public class OrderItem {
+public class PackItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -26,7 +26,6 @@ public class OrderItem {
     @Column(name = "product_id")
     private  Long productId;
     @ManyToOne
-    @JoinColumn(name="order_id")
-    private Order order;
-
+    @JoinColumn(name = "pack_id")
+    private Pack pack;
 }

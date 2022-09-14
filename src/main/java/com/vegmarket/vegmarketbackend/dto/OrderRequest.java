@@ -10,4 +10,6 @@ public class OrderRequest {
     private  int totalQuantity;
     private BigDecimal totalPrice;
     private String status;
+
+    private String paymentMethod;
 }

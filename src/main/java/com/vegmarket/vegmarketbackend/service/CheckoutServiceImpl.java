@@ -36,6 +36,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         order.setTotalQuantity(purchase.getOrderRequest().getTotalQuantity());
         order.setTotalPrice(purchase.getOrderRequest().getTotalPrice());
         order.setStatus(purchase.getOrderRequest().getStatus());
+        order.setPaymentMethod(purchase.getOrderRequest().getPaymentMethod());
 
         //System.out.println(order);
 
@@ -48,7 +49,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         Set<OrderItem> orderItems= purchase.getOrderItems();
 
         orderItems.forEach(item->order.add(item));
-        //System.out.println(orderItems);
+        //order.getOrderItems().forEach(item->System.out.println(item.getQuantity()));
 
         if(purchase.getShippingAddressId()!=null){
         Optional<Address> opaddress=this.addressRepository.findById(purchase.getShippingAddressId());

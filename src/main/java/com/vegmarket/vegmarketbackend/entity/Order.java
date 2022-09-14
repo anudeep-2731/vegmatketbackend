@@ -30,6 +30,8 @@ public class Order {
     private BigDecimal totalPrice;
     @Column(name="status")
     private String status;
+    @Column(name="payment_method")
+    private String paymentMethod;
     @Column(name="date_created")
     @CreationTimestamp
     private Date dateCreated;
